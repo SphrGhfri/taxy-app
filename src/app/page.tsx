@@ -1,15 +1,12 @@
 // app/page.js - no directives needed
-import { Button, Grid, Stack } from "@mui/material";
+import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <Grid container  height="100vh" alignItems="center" justifyContent="center" direction="column">
-      <h1>Using Material UI with Next.js 13</h1>
-      <Stack direction="row" columnGap={1}>
-        <Button variant="text" >Text</Button>
-        <Button variant="contained" >Contaissned</Button>
-        <Button variant="outlined">Outlined</Button>
-      </Stack>
-    </Grid>
+    <Container maxWidth="sm" >
+      <Grid container spacing={2}>
+        <Typography variant="h1">Home</Typography>
+      </Grid>
+    </Container>
   );
 }
