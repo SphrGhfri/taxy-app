@@ -4,6 +4,8 @@ import { Box, CssBaseline, ThemeProvider } from '@mui/material'
 import { darkTheme } from './theme/themes'
 import { Metadata } from 'next';
 import { Navbar } from '@/components/NavBar';
+import AuthProvider from '@/components/AuthProvider';
+
 
 export const metadata: Metadata = {
   title: {
@@ -19,22 +21,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <ThemeProvider theme={darkTheme}>
-        <CssBaseline>
+        <AuthProvider>
+          <CssBaseline>
 
-          <body id="__next">
-            <Box sx={{ display: 'flex' }}>
-              <Navbar />
+            <body id="__next">
+              <Box sx={{ display: 'flex' }}>
+                <Navbar />
 
-              <Box
-                component="main"
-                sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-              >
-                {children}
+                <Box
+                  component="main"
+                  sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+                >
+                  {children}
+                </Box>
               </Box>
-            </Box>
-          </body>
+            </body>
 
-        </CssBaseline>
+          </CssBaseline>
+        </AuthProvider>
       </ThemeProvider>
     </html>
   )
